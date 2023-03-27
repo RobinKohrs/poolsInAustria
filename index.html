@@ -28,7 +28,8 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/poolsPerPersonGemSimp_1.js"></script>
+        <script src="data/poolsPerPersonGemSimpcopy_1.js"></script>
+        <script src="data/poolsPerPersonGemSimp_2.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -72,7 +73,7 @@
         });
         layer_GoogleSatellite_0;
         map.addLayer(layer_GoogleSatellite_0);
-        function pop_poolsPerPersonGemSimp_1(feature, layer) {
+        function pop_poolsPerPersonGemSimpcopy_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -110,76 +111,143 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_poolsPerPersonGemSimp_1_0(feature) {
-            if (feature.properties['poolsPerPerson'] >= 0.000000 && feature.properties['poolsPerPerson'] <= 0.000166 ) {
+        function style_poolsPerPersonGemSimpcopy_1_0() {
+            return {
+                pane: 'pane_poolsPerPersonGemSimpcopy_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(95,95,95,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_poolsPerPersonGemSimpcopy_1');
+        map.getPane('pane_poolsPerPersonGemSimpcopy_1').style.zIndex = 401;
+        map.getPane('pane_poolsPerPersonGemSimpcopy_1').style['mix-blend-mode'] = 'normal';
+        var layer_poolsPerPersonGemSimpcopy_1 = new L.geoJson(json_poolsPerPersonGemSimpcopy_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_poolsPerPersonGemSimpcopy_1',
+            layerName: 'layer_poolsPerPersonGemSimpcopy_1',
+            pane: 'pane_poolsPerPersonGemSimpcopy_1',
+            onEachFeature: pop_poolsPerPersonGemSimpcopy_1,
+            style: style_poolsPerPersonGemSimpcopy_1_0,
+        });
+        bounds_group.addLayer(layer_poolsPerPersonGemSimpcopy_1);
+        map.addLayer(layer_poolsPerPersonGemSimpcopy_1);
+        function pop_poolsPerPersonGemSimp_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['people'] !== null ? autolinker.link(feature.properties['people'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">nPools</th>\
+                        <td>' + (feature.properties['nPools'] !== null ? autolinker.link(feature.properties['nPools'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">poolsPerPerson</th>\
+                        <td>' + (feature.properties['poolsPerPerson'] !== null ? autolinker.link(feature.properties['poolsPerPerson'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_poolsPerPersonGemSimp_2_0(feature) {
+            if (feature.properties['poolsPerPerson'] >= 0.000000 && feature.properties['poolsPerPerson'] <= 0.002620 ) {
                 return {
-                pane: 'pane_poolsPerPersonGemSimp_1',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
+                pane: 'pane_poolsPerPersonGemSimp_2',
+                stroke: false, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(247,251,255,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['poolsPerPerson'] >= 0.000166 && feature.properties['poolsPerPerson'] <= 0.001562 ) {
+            if (feature.properties['poolsPerPerson'] >= 0.002620 && feature.properties['poolsPerPerson'] <= 0.007269 ) {
                 return {
-                pane: 'pane_poolsPerPersonGemSimp_1',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
+                pane: 'pane_poolsPerPersonGemSimp_2',
+                stroke: false, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(200,220,240,1.0)',
+                fillColor: 'rgba(220,233,246,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['poolsPerPerson'] >= 0.001562 && feature.properties['poolsPerPerson'] <= 0.004056 ) {
+            if (feature.properties['poolsPerPerson'] >= 0.007269 && feature.properties['poolsPerPerson'] <= 0.013504 ) {
                 return {
-                pane: 'pane_poolsPerPersonGemSimp_1',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
+                pane: 'pane_poolsPerPersonGemSimp_2',
+                stroke: false, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(115,178,216,1.0)',
+                fillColor: 'rgba(190,216,236,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['poolsPerPerson'] >= 0.004056 && feature.properties['poolsPerPerson'] <= 0.010654 ) {
+            if (feature.properties['poolsPerPerson'] >= 0.013504 && feature.properties['poolsPerPerson'] <= 0.021978 ) {
                 return {
-                pane: 'pane_poolsPerPersonGemSimp_1',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
+                pane: 'pane_poolsPerPersonGemSimp_2',
+                stroke: false, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(41,121,185,1.0)',
+                fillColor: 'rgba(143,194,222,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['poolsPerPerson'] >= 0.010654 && feature.properties['poolsPerPerson'] <= 0.125977 ) {
+            if (feature.properties['poolsPerPerson'] >= 0.021978 && feature.properties['poolsPerPerson'] <= 0.034897 ) {
                 return {
-                pane: 'pane_poolsPerPersonGemSimp_1',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
+                pane: 'pane_poolsPerPersonGemSimp_2',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(91,163,208,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['poolsPerPerson'] >= 0.034897 && feature.properties['poolsPerPerson'] <= 0.054622 ) {
+                return {
+                pane: 'pane_poolsPerPersonGemSimp_2',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(50,130,190,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['poolsPerPerson'] >= 0.054622 && feature.properties['poolsPerPerson'] <= 0.078915 ) {
+                return {
+                pane: 'pane_poolsPerPersonGemSimp_2',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(17,92,165,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['poolsPerPerson'] >= 0.078915 && feature.properties['poolsPerPerson'] <= 0.125977 ) {
+                return {
+                pane: 'pane_poolsPerPersonGemSimp_2',
+                stroke: false, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(8,48,107,1.0)',
@@ -187,20 +255,20 @@
             }
             }
         }
-        map.createPane('pane_poolsPerPersonGemSimp_1');
-        map.getPane('pane_poolsPerPersonGemSimp_1').style.zIndex = 401;
-        map.getPane('pane_poolsPerPersonGemSimp_1').style['mix-blend-mode'] = 'normal';
-        var layer_poolsPerPersonGemSimp_1 = new L.geoJson(json_poolsPerPersonGemSimp_1, {
+        map.createPane('pane_poolsPerPersonGemSimp_2');
+        map.getPane('pane_poolsPerPersonGemSimp_2').style.zIndex = 402;
+        map.getPane('pane_poolsPerPersonGemSimp_2').style['mix-blend-mode'] = 'normal';
+        var layer_poolsPerPersonGemSimp_2 = new L.geoJson(json_poolsPerPersonGemSimp_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_poolsPerPersonGemSimp_1',
-            layerName: 'layer_poolsPerPersonGemSimp_1',
-            pane: 'pane_poolsPerPersonGemSimp_1',
-            onEachFeature: pop_poolsPerPersonGemSimp_1,
-            style: style_poolsPerPersonGemSimp_1_0,
+            dataVar: 'json_poolsPerPersonGemSimp_2',
+            layerName: 'layer_poolsPerPersonGemSimp_2',
+            pane: 'pane_poolsPerPersonGemSimp_2',
+            onEachFeature: pop_poolsPerPersonGemSimp_2,
+            style: style_poolsPerPersonGemSimp_2_0,
         });
-        bounds_group.addLayer(layer_poolsPerPersonGemSimp_1);
-        map.addLayer(layer_poolsPerPersonGemSimp_1);
+        bounds_group.addLayer(layer_poolsPerPersonGemSimp_2);
+        map.addLayer(layer_poolsPerPersonGemSimp_2);
         setBounds();
         </script>
     </body>
